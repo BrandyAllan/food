@@ -1,0 +1,380 @@
+CRITICAL - 2026-04-28 09:19:35 --> Error: Class "App\Controllers\UserModel" not found
+[Method: POST, Route: login-check]
+in APPPATH/Controllers/Login.php on line 26.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
+CRITICAL - 2026-04-28 09:19:37 --> Error: Class "App\Controllers\UserModel" not found
+[Method: POST, Route: login-check]
+in APPPATH/Controllers/Login.php on line 26.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
+CRITICAL - 2026-04-28 09:19:39 --> Error: Class "App\Controllers\UserModel" not found
+[Method: POST, Route: login-check]
+in APPPATH/Controllers/Login.php on line 26.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
+ERROR - 2026-04-28 09:20:06 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#6 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2026-04-28 09:20:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: POST, Route: login-check]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
+ERROR - 2026-04-28 09:20:07 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#6 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2026-04-28 09:20:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: POST, Route: login-check]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
+ERROR - 2026-04-28 09:20:07 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#6 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2026-04-28 09:20:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: POST, Route: login-check]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
+ERROR - 2026-04-28 09:21:41 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#6 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2026-04-28 09:21:41 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: POST, Route: login-check]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
+ERROR - 2026-04-28 09:21:42 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#6 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2026-04-28 09:21:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: POST, Route: login-check]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
+ERROR - 2026-04-28 09:23:42 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#6 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2026-04-28 09:23:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: POST, Route: login-check]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
+ERROR - 2026-04-28 09:24:30 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /home/brandy-allan/Documents/HTML/S4/food/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/brandy-allan/Documents/HTML/S4/food/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/brandy-allan/Documents/HTML/S4/food/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/brandy-allan/Documents/HTML/S4/food/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/brandy-allan/Documents/HTML/S4/food/app/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+#6 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+#7 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/brandy-allan/Documents/HTML/S4/food/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/brandy-allan/Documents/HTML/S4/food/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/brandy-allan/Documents/HTML/S4/food/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 /home/brandy-allan/Documents/HTML/S4/food/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2026-04-28 09:24:30 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+[Method: POST, Route: login-check]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(28): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Login->doLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')

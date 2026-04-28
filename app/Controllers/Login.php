@@ -1,16 +1,15 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\UserModel;
 
 class Login extends BaseController
 {
-    public function showLogin(): string
-    {
+    public function showLogin(): string {
         return view('login');
     }
 
-    public function doLogin()
-    {
+    public function doLogin() {
         $data = $this->request->getJSON(true);
 
         $email = $data['email'] ?? '';
@@ -51,5 +50,11 @@ class Login extends BaseController
             'success' => true,
             'message' => 'Connexion réussie.'
         ]);
+    }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/');
     }
 }
