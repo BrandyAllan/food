@@ -378,3 +378,13 @@ in SYSTEMPATH/Database/BaseConnection.php on line 606.
 10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
 11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
 12 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
+CRITICAL - 2026-04-28 09:44:37 --> TypeError: App\Controllers\Home::index(): Return value must be of type string, CodeIgniter\HTTP\RedirectResponse returned
+[Method: GET, Route: home]
+in APPPATH/Controllers/Home.php on line 10.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->index()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
