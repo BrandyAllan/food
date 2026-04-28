@@ -2,16 +2,19 @@
 
 namespace App\Controllers;
 
-use App\Models\Food;
+use App\Models\FoodModel;
 
-class HomeController extends BaseController
+class Food extends BaseController
 {
-    public function showFood()
+    public function getFoods()
     {
-        $foodModel = new Food();
+        if (!session()->get('logged_in')) {
+            return $this->response->setJSON([]);
+        }
 
-        $data['foods'] = $foodModel->findAll();
+        $foodModel = new FoodModel();
+        $foods = $foodModel->findAll();
 
-        return view('home', $data);
+        return $this->response->setJSON($foods);
     }
 }
