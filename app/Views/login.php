@@ -32,7 +32,7 @@
     <button class="btn-primary" onclick="doLogin()">Se connecter 🍴</button>
 
     <div class="auth-switch">
-      Pas encore de compte ? <a href="register.php">S'inscrire</a>
+      Pas encore de compte ? <a href="<?= base_url('/register') ?>">S'inscrire</a>
     </div>
 
   </div>
