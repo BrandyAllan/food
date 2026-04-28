@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FoodSwipe — Inscription</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="<?= base_url('css/style.css') ?>" />
 </head>
 <body>
 
@@ -49,7 +49,7 @@
 </div>
 
 <script>
-  function doRegister() {
+  async function doRegister() {
     const name  = document.getElementById('reg-name').value.trim();
     const email = document.getElementById('reg-email').value.trim();
     const pwd   = document.getElementById('reg-pwd').value;
@@ -61,11 +61,25 @@
       err.classList.add('visible');
       return;
     }
+
+    if (name.length < 3) {
+      err.textContent = 'Le nom doit contenir au moins 3 caractères.';
+      err.classList.add('visible');
+      return;
+    }
+
+    if (!email.includes('@') || !email.includes('.')) {
+      err.textContent = 'Veuillez entrer un email valide.';
+      err.classList.add('visible');
+      return;
+    }
+
     if (pwd.length < 8) {
       err.textContent = 'Le mot de passe doit contenir au moins 8 caractères.';
       err.classList.add('visible');
       return;
     }
+
     if (pwd !== pwd2) {
       err.textContent = 'Les mots de passe ne correspondent pas.';
       err.classList.add('visible');
@@ -74,20 +88,33 @@
 
     err.classList.remove('visible');
 
-    localStorage.setItem('fs_user', JSON.stringify({ name, email, pwd }));
-    localStorage.setItem('fs_logged', 'true');
-    // Reset swipe state for new account
-    localStorage.removeItem('fs_liked');
-    localStorage.removeItem('fs_super');
-    localStorage.removeItem('fs_seen');
-    localStorage.removeItem('fs_deck');
+    const response = await fetch("<?= base_url('/register-check') ?>", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest"
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        password: pwd,
+        password2: pwd2
+      })
+    });
 
-    window.location.href = 'home.html';
-  }
+    const result = await response.json();
 
-  // Already logged in → redirect
-  if (localStorage.getItem('fs_logged') === 'true') {
-    window.location.href = 'home.html';
+    if (result.success) {
+      localStorage.removeItem('fs_liked');
+      localStorage.removeItem('fs_super');
+      localStorage.removeItem('fs_seen');
+      localStorage.removeItem('fs_deck');
+
+      window.location.href = "<?= base_url('/home') ?>";
+    } else {
+      err.textContent = result.message;
+      err.classList.add('visible');
+    }
   }
 
   document.addEventListener('keydown', e => { if (e.key === 'Enter') doRegister(); });
