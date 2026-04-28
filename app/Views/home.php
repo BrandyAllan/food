@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FoodSwipe — Découvrir</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="<?= base_url('css/style.css') ?>" />
 </head>
 <body>
 
@@ -56,16 +56,6 @@
 </div>
 
 <script>
-  /* ── Auth guard ── */
-  if (localStorage.getItem('fs_logged') !== 'true') {
-    window.location.href = 'login.html';
-  }
-
-  function logout() {
-    localStorage.setItem('fs_logged', 'false');
-    window.location.href = 'login.html';
-  }
-
   /* ── Data ── */
   const ALL_FOODS = [
     { id:1,  name:"Ramen Tonkotsu",     emoji:"🍜", img:"images/ramen.jpg",    cat:"Japonais",    time:"45 min", cal:"620 kcal", rating:"4.8", desc:"Bouillon de porc riche, nouilles fraîches, œuf mollet et chashu." },
