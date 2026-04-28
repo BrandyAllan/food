@@ -22,8 +22,4 @@ class Food extends Model
 
     protected $returnType = 'array';
 
-    public function getAllFoods()
-    {
-        return $this->findAll(); 
-    }
 }
