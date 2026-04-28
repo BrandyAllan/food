@@ -388,3 +388,5 @@ in APPPATH/Controllers/Home.php on line 10.
  5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
  6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
  7 SYSTEMPATH/rewrite.php(44): require_once('/home/brandy-allan/Documents/HTML/S4/food/public/index.php')
+DEBUG - 2026-04-28 07:08:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-28 07:08:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
