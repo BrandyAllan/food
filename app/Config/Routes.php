@@ -12,3 +12,4 @@ $routes->get('/logout', 'Login::logout');
 $routes->get('/register', 'Register::showRegister');
 $routes->post('/register-check', 'Register::doRegister');
 $routes->get('/foods', 'Food::getFoods');
+$routes->post('/save-swipe', 'Food::saveSwipe');

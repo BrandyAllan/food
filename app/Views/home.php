@@ -108,20 +108,22 @@
     return { deck, likedIds, superIds, seenIds };
   }
 
-  function saveSwipe(food, action) {
-    const seenIds  = JSON.parse(localStorage.getItem('fs_seen')  || '[]').map(Number);
-    const likedIds = JSON.parse(localStorage.getItem('fs_liked') || '[]').map(Number);
-    const superIds = JSON.parse(localStorage.getItem('fs_super') || '[]').map(Number);
-
-    const id = Number(food.id);
-
-    if (!seenIds.includes(id)) seenIds.push(id);
-    if ((action === 'like' || action === 'super') && !likedIds.includes(id)) likedIds.push(id);
-    if (action === 'super' && !superIds.includes(id)) superIds.push(id);
-
-    localStorage.setItem('fs_seen',  JSON.stringify(seenIds));
-    localStorage.setItem('fs_liked', JSON.stringify(likedIds));
-    localStorage.setItem('fs_super', JSON.stringify(superIds));
+  async function saveSwipe(food, action) {
+    try {
+      await fetch("<?= base_url('/save-swipe') ?>", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        body: JSON.stringify({
+          food_id: food.id,
+          action: action
+        })
+      });
+    } catch (error) {
+      console.error("Erreur sauvegarde swipe :", error);
+    }
   }
 
   /* ── Render ── */
@@ -236,7 +238,7 @@
   }
 
   /* ── Swipe ── */
-  function performSwipe(dir, food) {
+  async function performSwipe(dir, food) {
     const stack = document.getElementById('card-stack');
     const top = stack.querySelector('.food-card:last-child');
 
@@ -245,7 +247,7 @@
     top.classList.add(dir === 'right' ? 'swiping-right' : 'swiping-left');
 
     const action = dir === 'right' ? 'like' : 'skip';
-    saveSwipe(food, action);
+    await saveSwipe(food, action);
 
     setTimeout(() => {
       deck.shift();
