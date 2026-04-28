@@ -4,10 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Food extends Model
+class FoodModel extends Model
 {
-    protected $table = 'foods'; // nom de la table
+    protected $table = 'foods';
     protected $primaryKey = 'id';
+    protected $returnType = 'array';
 
     protected $allowedFields = [
         'name',
@@ -17,9 +18,7 @@ class Food extends Model
         'time',
         'cal',
         'rating',
-        'desc'
+        'desc',
+        'description'
     ];
-
-    protected $returnType = 'array';
-
 }

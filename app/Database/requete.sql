@@ -49,3 +49,13 @@ INSERT INTO foods (name, emoji, img, cat, time, cal, rating, description) VALUES
 ('Couscous Royal', '🍲', 'couscous.jpg', 'Maghrebin', '75 min', '720 kcal', '4.9', 'Semoule fine merguez poulet legumes et bouillon parfume'),
 
 ('Tiramisu', '🍮', 'tiramisu.jpg', 'Dessert', '20 min', '380 kcal', '4.8', 'Mascarpone aerien biscuits imbibes espresso et cacao');
+
+CREATE TABLE food_swipes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  food_id INT NOT NULL,
+  action ENUM('seen', 'like', 'super', 'skip') NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+  UNIQUE KEY unique_user_food (user_id, food_id)
+);
