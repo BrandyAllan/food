@@ -5,13 +5,11 @@ use App\Models\UserModel;
 
 class Login extends BaseController
 {
-    public function showLogin(): string
-    {
+    public function showLogin(): string {
         return view('login');
     }
 
-    public function doLogin()
-    {
+    public function doLogin() {
         $data = $this->request->getJSON(true);
 
         $email = $data['email'] ?? '';
