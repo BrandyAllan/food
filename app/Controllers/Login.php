@@ -53,4 +53,10 @@ class Login extends BaseController
             'message' => 'Connexion réussie.'
         ]);
     }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/');
+    }
 }

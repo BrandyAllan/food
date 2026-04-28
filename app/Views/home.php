@@ -15,7 +15,7 @@
     <span class="topbar-logo"><span>🍽️</span>FoodSwipe</span>
     <div class="topbar-actions">
       <a href="stats.html" title="Mes stats">📊</a>
-      <a href="#" title="Se déconnecter" onclick="logout()">🚪</a>
+      <a href="<?= base_url('logout') ?>" title="Se déconnecter"">🚪</a>
     </div>
   </div>
 
