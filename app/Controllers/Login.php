@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\UserModel;
 
 class Login extends BaseController
 {
@@ -49,5 +50,11 @@ class Login extends BaseController
             'success' => true,
             'message' => 'Connexion réussie.'
         ]);
+    }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/');
     }
 }
