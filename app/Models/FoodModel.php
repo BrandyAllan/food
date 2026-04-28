@@ -6,8 +6,24 @@ use CodeIgniter\Model;
 
 class Food extends Model
 {
+    protected $table = 'foods'; // nom de la table
+    protected $primaryKey = 'id';
+
+    protected $allowedFields = [
+        'name',
+        'emoji',
+        'img',
+        'cat',
+        'time',
+        'cal',
+        'rating',
+        'desc'
+    ];
+
+    protected $returnType = 'array';
+
     public function getAllFoods()
     {
-        return $this->findAll();
+        return $this->findAll(); 
     }
 }
