@@ -14,7 +14,7 @@
   <div class="topbar">
     <span class="topbar-logo"><span>🍽️</span>FoodSwipe</span>
     <div class="topbar-actions">
-      <a href="#" title="Se déconnecter" onclick="logout()">🚪</a>
+      <a href="/stats/logout" title="Se déconnecter">🚪</a>
     </div>
   </div>
 
@@ -49,7 +49,7 @@
     <!-- Category Bar Chart -->
     <div class="section-title">🥗 Répartition par catégorie</div>
     <div class="bar-chart" id="category-chart">
-      <p class="empty-placeholder">Aucune donnée encore</p>
+      <p class="empty-placeholder">Chargement...</p>
     </div>
 
     <!-- Donut -->
@@ -85,20 +85,20 @@
     <!-- Liked List -->
     <div class="section-title">💖 Plats aimés</div>
     <div class="liked-list" id="liked-list">
-      <div class="empty-placeholder">Vous n'avez encore aimé aucun plat 🍽️</div>
+      <div class="empty-placeholder">Chargement...</div>
     </div>
 
   </div>
 
   <!-- Bottom Nav -->
   <div class="bottom-nav">
-    <a href="home.html">
+    <a href="/home">
       <span class="nav-icon">🔥</span>Découvrir
     </a>
-    <a href="add-food.html">
+    <a href="/add-food">
       <span class="nav-icon">➕</span>Ajouter
     </a>
-    <a href="stats.html" class="active">
+    <a href="/stats" class="active">
       <span class="nav-icon">📊</span>Mes stats
     </a>
   </div>
@@ -106,75 +106,68 @@
 </div>
 
 <script>
-  /* ── Auth guard ── */
-  if (localStorage.getItem('fs_logged') !== 'true') {
-    window.location.href = 'login.html';
-  }
-
-  function logout() {
-    localStorage.setItem('fs_logged', 'false');
-    window.location.href = 'login.html';
-  }
-
-  /* ── Food data ── */
-  const ALL_FOODS = [
-    { id:1,  name:"Ramen Tonkotsu",     emoji:"🍜", img:"images/ramen.jpg",    cat:"Japonais",    time:"45 min", cal:"620 kcal" },
-    { id:2,  name:"Pizza Margherita",   emoji:"🍕", img:"images/pizza.jpg",    cat:"Italien",     time:"30 min", cal:"540 kcal" },
-    { id:3,  name:"Tacos al Pastor",    emoji:"🌮", img:"images/tacos.jpg",    cat:"Mexicain",    time:"20 min", cal:"480 kcal" },
-    { id:4,  name:"Pad Thaï",           emoji:"🍝", img:"images/padthai.jpg",  cat:"Thaïlandais", time:"25 min", cal:"550 kcal" },
-    { id:5,  name:"Burger Smash",       emoji:"🍔", img:"images/burger.jpg",   cat:"Américain",   time:"15 min", cal:"750 kcal" },
-    { id:6,  name:"Sushi Omakase",      emoji:"🍣", img:"images/sushi.jpg",    cat:"Japonais",    time:"60 min", cal:"420 kcal" },
-    { id:7,  name:"Shakshuka",          emoji:"🍳", img:"images/shakshuka.jpg",cat:"Oriental",    time:"20 min", cal:"390 kcal" },
-    { id:8,  name:"Crêpe Suzette",      emoji:"🥞", img:"images/crepes.jpg",   cat:"Français",    time:"15 min", cal:"310 kcal" },
-    { id:9,  name:"Biryani d'agneau",   emoji:"🍚", img:"images/biryani.jpg",  cat:"Indien",      time:"90 min", cal:"680 kcal" },
-    { id:10, name:"Poke Bowl Saumon",   emoji:"🥗", img:"images/pokebowl.jpg", cat:"Hawaïen",     time:"10 min", cal:"490 kcal" },
-    { id:11, name:"Couscous Royal",     emoji:"🍲", img:"images/couscous.jpg", cat:"Maghrébin",   time:"75 min", cal:"720 kcal" },
-    { id:12, name:"Tiramisu",           emoji:"🍮", img:"images/tiramisu.jpg", cat:"Dessert",     time:"20 min", cal:"380 kcal" },
-  ];
-
+  // Couleurs pour les catégories
   const CAT_COLORS = [
     '#FF6B6B','#FF8E53','#FFC371','#4ECDC4','#45B7D1',
     '#96CEB4','#DDA0DD','#FF69B4','#20B2AA','#9370DB','#F08080','#3CB371',
   ];
-  const customs  = JSON.parse(localStorage.getItem('fs_custom_foods') || '[]');
-  const FOODS    = [...ALL_FOODS, ...customs];
-  const ALL_CATS = [...new Set(FOODS.map(f => f.cat))];
-  const catColor = cat => CAT_COLORS[ALL_CATS.indexOf(cat) % CAT_COLORS.length];
 
-  /* ── Load state ── */
-  const seenIds  = JSON.parse(localStorage.getItem('fs_seen')  || '[]');
-  const likedIds = JSON.parse(localStorage.getItem('fs_liked') || '[]');
-  const superIds = JSON.parse(localStorage.getItem('fs_super') || '[]');
+  // Charger les statistiques depuis le serveur
+  async function loadStats() {
+    try {
+      const response = await fetch('/stats/getStatsData');
+      const result = await response.json();
 
-  const likedFoods = FOODS.filter(f => likedIds.includes(f.id));
-  const total      = seenIds.length;
-  const pct        = total > 0 ? Math.round((likedIds.length / total) * 100) : 0;
+      if (!result.success) {
+        window.location.href = '/login';
+        return;
+      }
 
-  /* ── KPIs ── */
-  document.getElementById('kpi-liked').textContent = likedIds.length;
-  document.getElementById('kpi-seen').textContent  = total;
-  document.getElementById('kpi-super').textContent = superIds.length;
+      const data = result.data;
+      
+      // Mettre à jour les KPIs
+      document.getElementById('kpi-liked').textContent = data.kpis.liked;
+      document.getElementById('kpi-seen').textContent = data.kpis.seen;
+      document.getElementById('kpi-super').textContent = data.kpis.super;
 
-  /* ── Donut ── */
-  const circ = 2 * Math.PI * 30;
-  document.getElementById('donut-arc').setAttribute(
-    'stroke-dasharray', `${circ * pct / 100} ${circ}`
-  );
-  document.getElementById('donut-pct').textContent = pct + '%';
-  document.getElementById('donut-label').innerHTML = total > 0
-    ? `<strong>${likedIds.length}</strong> aimé${likedIds.length > 1 ? 's' : ''} sur <strong>${total}</strong> vus`
-    : 'Swipez des plats<br>pour voir vos stats';
+      // Mettre à jour le donut
+      updateDonut(data.percentage, data.kpis.liked, data.kpis.seen);
 
-  /* ── Category bar chart ── */
-  const catCount = {};
-  likedFoods.forEach(f => { catCount[f.cat] = (catCount[f.cat] || 0) + 1; });
-  const cats = Object.entries(catCount).sort((a, b) => b[1] - a[1]);
-  const max  = cats.length ? cats[0][1] : 1;
-  const chart = document.getElementById('category-chart');
+      // Mettre à jour le graphique des catégories
+      updateCategoryChart(data.categoryStats, data.allFoods);
 
-  if (cats.length === 0) {
-    chart.innerHTML = '<p class="empty-placeholder">Aucune donnée encore</p>';
-  } else {
+      // Mettre à jour la liste des plats aimés
+      updateLikedList(data.likedFoods, data.superIds, data.allFoods);
+
+    } catch (error) {
+      console.error('Erreur lors du chargement des stats:', error);
+    }
+  }
+
+  function updateDonut(pct, likedCount, total) {
+    const circ = 2 * Math.PI * 30;
+    document.getElementById('donut-arc').setAttribute(
+      'stroke-dasharray', `${circ * pct / 100} ${circ}`
+    );
+    document.getElementById('donut-pct').textContent = pct + '%';
+    document.getElementById('donut-label').innerHTML = total > 0
+      ? `<strong>${likedCount}</strong> aimé${likedCount > 1 ? 's' : ''} sur <strong>${total}</strong> vus`
+      : 'Swipez des plats<br>pour voir vos stats';
+  }
+
+  function updateCategoryChart(categoryStats, allFoods) {
+    const cats = Object.entries(categoryStats).sort((a, b) => b[1] - a[1]);
+    const max = cats.length ? cats[0][1] : 1;
+    const chart = document.getElementById('category-chart');
+
+    if (cats.length === 0) {
+      chart.innerHTML = '<p class="empty-placeholder">Aucune donnée encore</p>';
+      return;
+    }
+
+    const allCats = [...new Set(allFoods.map(f => f.category))];
+    const catColor = cat => CAT_COLORS[allCats.indexOf(cat) % CAT_COLORS.length];
+
     chart.innerHTML = cats.map(([cat, count]) => `
       <div class="bar-row">
         <div class="bar-label">${cat}</div>
@@ -185,30 +178,37 @@
       </div>`).join('');
   }
 
-  /* ── Liked list ── */
-  const list = document.getElementById('liked-list');
+  function updateLikedList(likedFoods, superIds, allFoods) {
+    const list = document.getElementById('liked-list');
+    const allCats = [...new Set(allFoods.map(f => f.category))];
+    const catColor = cat => CAT_COLORS[allCats.indexOf(cat) % CAT_COLORS.length];
 
-  if (likedFoods.length === 0) {
-    list.innerHTML = '<div class="empty-placeholder">Vous n\'avez encore aimé aucun plat 🍽️</div>';
-  } else {
+    if (likedFoods.length === 0) {
+      list.innerHTML = '<div class="empty-placeholder">Vous n\'avez encore aimé aucun plat 🍽️</div>';
+      return;
+    }
+
     list.innerHTML = likedFoods.map((f, i) => `
       <div class="liked-item" style="animation-delay:${i * .05}s">
         <div class="liked-item-thumb">
-          ${f.img
-            ? `<img src="${f.img}" alt="${f.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+          ${f.image
+            ? `<img src="${f.image}" alt="${f.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
             : ''}
-          <span class="liked-item-emoji" style="${f.img ? 'display:none' : ''}">${f.emoji}</span>
+          <span class="liked-item-emoji" style="${f.image ? 'display:none' : ''}">${f.emoji}</span>
         </div>
         <div class="liked-item-info">
           <div class="liked-item-name">${f.name}</div>
           <div class="liked-item-cat">
-            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${catColor(f.cat)};margin-right:4px;vertical-align:middle"></span>
-            ${f.cat} · ⏱ ${f.time} · 🔥 ${f.cal}
+            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${catColor(f.category)};margin-right:4px;vertical-align:middle"></span>
+            ${f.category} · ⏱ ${f.time} · 🔥 ${f.calories}
           </div>
         </div>
         <div class="liked-item-heart">${superIds.includes(f.id) ? '⭐' : '❤️'}</div>
       </div>`).join('');
   }
+
+  // Charger les stats au démarrage
+  loadStats();
 </script>
 
 </body>
