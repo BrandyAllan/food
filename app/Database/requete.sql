@@ -59,3 +59,30 @@ CREATE TABLE food_swipes (
 
   UNIQUE KEY unique_user_food (user_id, food_id)
 );
+
+-- Table des plats
+CREATE TABLE foods (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    emoji VARCHAR(10),
+    image VARCHAR(255),
+    category VARCHAR(100),
+    time VARCHAR(50),
+    calories VARCHAR(50),
+    created_by INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Table des interactions
+CREATE TABLE interactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    food_id INT NOT NULL,
+    action ENUM('seen', 'liked', 'super_liked', 'passed') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_interaction (user_id, food_id, action),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (food_id) REFERENCES foods(id) ON DELETE CASCADE
+);

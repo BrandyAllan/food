@@ -2,14 +2,19 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
 use App\Models\FoodModel;
-use App\Models\InteractionModel;
+use App\Models\FoodSwipeModel;
+use CodeIgniter\HTTP\RedirectResponse;
 
 class Stats extends BaseController
 {
-    public function showStats(): string
+    /**
+     * Affiche la page des statistiques
+     * Retourne une vue ou une redirection si non connecté
+     */
+    public function showStats(): string|RedirectResponse
     {
+        // Vérifier si l'utilisateur est connecté
         if (!session()->get('logged_in')) {
             return redirect()->to('/login');
         }
@@ -17,8 +22,12 @@ class Stats extends BaseController
         return view('stats');
     }
 
+    /**
+     * Récupère les données statistiques en JSON
+     */
     public function getStatsData()
     {
+        // Vérifier si l'utilisateur est connecté
         if (!session()->get('logged_in')) {
             return $this->response->setJSON([
                 'success' => false,
@@ -29,37 +38,38 @@ class Stats extends BaseController
         $userId = session()->get('user_id');
 
         $foodModel = new FoodModel();
-        $interactionModel = new InteractionModel();
+        $swipeModel = new FoodSwipeModel();
 
+        // Récupérer tous les plats
         $allFoods = $foodModel->findAll();
 
-        $seenPlats = $interactionModel->where('user_id', $userId)
-                                     ->where('action', 'seen')
-                                     ->findAll();
-        $likedPlats = $interactionModel->where('user_id', $userId)
-                                       ->where('action', 'liked')
-                                       ->findAll();
-        $superLikedPlats = $interactionModel->where('user_id', $userId)
-                                            ->where('action', 'super_liked')
-                                            ->findAll();
+        // Récupérer les IDs par type d'action
+        $seenIds = $swipeModel->getFoodIdsByAction($userId, 'seen');
+        $likedIds = $swipeModel->getFoodIdsByAction($userId, 'like');
+        $superIds = $swipeModel->getFoodIdsByAction($userId, 'super');
 
-        $seenIds = array_column($seenPlats, 'food_id');
-        $likedIds = array_column($likedPlats, 'food_id');
-        $superIds = array_column($superLikedPlats, 'food_id');
+        // Plats aimés avec leurs détails
+        $likedFoods = [];
+        foreach ($allFoods as $food) {
+            if (in_array($food['id'], $likedIds)) {
+                $likedFoods[] = $food;
+            }
+        }
 
-        $likedFoods = array_filter($allFoods, function($food) use ($likedIds) {
-            return in_array($food['id'], $likedIds);
-        });
-
+        // Statistiques par catégorie
         $categoryStats = [];
         foreach ($likedFoods as $food) {
-            $cat = $food['category'];
+            $cat = $food['cat'];
             if (!isset($categoryStats[$cat])) {
                 $categoryStats[$cat] = 0;
             }
             $categoryStats[$cat]++;
         }
 
+        // Trier les catégories par nombre décroissant
+        arsort($categoryStats);
+
+        // Calcul du pourcentage
         $total = count($seenIds);
         $likedCount = count($likedIds);
         $pct = $total > 0 ? round(($likedCount / $total) * 100) : 0;
@@ -75,15 +85,19 @@ class Stats extends BaseController
                 'percentage' => $pct,
                 'categoryStats' => $categoryStats,
                 'allFoods' => $allFoods,
-                'likedFoods' => array_values($likedFoods),
+                'likedFoods' => $likedFoods,
                 'likedIds' => $likedIds,
                 'superIds' => $superIds,
+                'seenIds' => $seenIds,
                 'total' => $total
             ]
         ]);
     }
 
-    public function logout()
+    /**
+     * Déconnexion de l'utilisateur
+     */
+    public function logout(): RedirectResponse
     {
         session()->destroy();
         return redirect()->to('/login');
